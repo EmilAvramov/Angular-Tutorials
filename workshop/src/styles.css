@@ -167,6 +167,31 @@ blockquote p.author {
 	text-align: right;
 }
 
+h2 {
+    text-align: center;
+    border-bottom: 1px dashed #999;
+}
+
+span {
+    font-weight: bold;
+}
+
+button {
+    background-color: #4ebced;
+    color: white;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+/* main  */
+
+main {
+    width: 50%;
+}
+
+
 @media (min-width: 800px) {
 	html {
 		font-size: 14px;
