@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ContentService } from './content.service';
+import { ITheme } from './shared/interfaces';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +8,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'workshop';
+	themes: ITheme[] | undefined;
+
+	constructor(public contentService: ContentService) {
+		this.fetchThemes();
+	}
+
+	fetchThemes(): void {
+		this.themes = undefined;
+		this.contentService
+			.loadthemes()
+			.subscribe((themes) => (this.themes = themes));
+	}
 }

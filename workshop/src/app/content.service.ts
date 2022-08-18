@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { IPost, ITheme } from './shared/interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,9 @@ export class ContentService {
   constructor(private http: HttpClient) { }
 
   loadthemes() {
-    this.http.get('http://localhost:3000/api/themes')
+    return this.http.get<ITheme[]>('http://localhost:3000/api/themes')
+  }
+  loadPosts() {
+    return this.http.get<IPost[]>('http://localhost:3000/api/posts')
   }
 }
