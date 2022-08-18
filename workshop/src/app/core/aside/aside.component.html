@@ -2,14 +2,10 @@
 	<div class="aside">
 		<h2 class="title">{{ title }}</h2>
 		<div *ngIf="items">
-			<div *ngFor="let item of items" class="aside-theme">
-				<a href="#">
-					<h3>{{ item.themeId.themeName }}</h3>
-					<p>{{ item.userId.username }}</p>
-					<p>
-						<span>{{ item.created_at }}</span>
-					</p>
-				</a>
+			<div *ngFor="let item of items; let i = index" class="aside-theme">
+				<ng-container
+					*ngTemplateOutlet="itemTemplateRef; context: { $implicit: item, index: 1 }"
+				></ng-container>
 			</div>
 		</div>
 		<div *ngIf="!items">Loading</div>

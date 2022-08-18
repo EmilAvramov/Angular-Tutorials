@@ -1,18 +1,18 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { IPost, ITheme } from './shared/interfaces';
+import { environment } from '../environments/environment'
+const url = environment.apiURL
 
-@Injectable({
-	providedIn: 'root',
-})
+@Injectable()
 export class ContentService {
 	constructor(private http: HttpClient) {}
 
 	loadthemes() {
-		return this.http.get<ITheme[]>('http://localhost:3000/api/themes');
+		return this.http.get<ITheme[]>(`${url}/themes`);
 	}
-	loadPosts(take?: number) {
-		const query = take ? `?take=${take}` : '';
-		return this.http.get<IPost[]>(`http://localhost:3000/api/posts${query}`);
+	loadPosts(limit?: number) {
+		const query = limit ? `?limit=${limit}` : '';
+		return this.http.get<IPost[]>(`${url}/posts${query}`);
 	}
 }

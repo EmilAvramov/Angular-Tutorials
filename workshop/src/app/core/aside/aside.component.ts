@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, TemplateRef } from '@angular/core';
 import { IPost } from 'src/app/shared/interfaces';
 
 @Component({
@@ -6,9 +6,10 @@ import { IPost } from 'src/app/shared/interfaces';
 	templateUrl: './aside.component.html',
 	styleUrls: ['./aside.component.css'],
 })
-export class AsideComponent {
+export class AsideComponent<T> {
 	@Input() title!: string;
 	@Input() items: IPost[] | undefined;
+	@Input() itemTemplateRef!: TemplateRef<{$impicit: T}>
 
 	constructor() {}
 }
