@@ -11,6 +11,7 @@ import { AsideComponent } from './aside/aside.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RouterModule } from '@angular/router';
 import { LocalStorage } from './injection-tokens';
+import { AuthActivate } from './guards/auth.activate';
 
 @NgModule({
 	declarations: [
@@ -55,10 +56,11 @@ import { LocalStorage } from './injection-tokens';
 						}
 					};
 				}
-				throw Error('NOT IMPLEMENTED')
+				throw Error('NOT IMPLEMENTED');
 			},
 			deps: [PLATFORM_ID],
 		},
+		AuthActivate,
 	],
 })
 export class CoreModule {}

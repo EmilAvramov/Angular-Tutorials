@@ -34,5 +34,6 @@ export class UserService {
 
 	logout(): void {
 		this.user = undefined;
+		this.localStorage.removeItem('<USER>')
 	}
 }

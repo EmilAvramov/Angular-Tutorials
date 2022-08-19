@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthActivate } from '../core/guards/auth.activate';
 import { NewThemeComponent } from './new-theme/new-theme.component';
 import { ThemesComponent } from './themes/themes.component';
 
@@ -21,6 +22,11 @@ const routes: Routes = [
 	{
 		path: 'add-theme',
 		component: NewThemeComponent,
+		canActivate: [AuthActivate],
+		data: {
+			authenticationRequired: true,
+			authFailureRedirect: '/login',
+		},
 	},
 ];
 
