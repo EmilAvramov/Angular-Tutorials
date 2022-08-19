@@ -8,6 +8,10 @@ const url = environment.apiURL
 export class ContentService {
 	constructor(private http: HttpClient) {}
 
+	loadTheme(id: string) {
+		return this.http.get<ITheme>(`${url}/themes/${id}`);
+	}
+
 	loadthemes() {
 		return this.http.get<ITheme[]>(`${url}/themes`);
 	}

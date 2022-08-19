@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthActivate } from '../core/guards/auth.activate';
 import { HomeComponent } from '../shared/home/home.component';
 import { NewThemeComponent } from './new-theme/new-theme.component';
+import { ThemeComponent } from './theme/theme.component';
 import { ThemesComponent } from './themes/themes.component';
 
 const routes: Routes = [
@@ -20,7 +21,7 @@ const routes: Routes = [
 			},
 			{
 				path: ':themeId',
-				component: ThemesComponent,
+				component: ThemeComponent,
 			},
 		],
 	},
