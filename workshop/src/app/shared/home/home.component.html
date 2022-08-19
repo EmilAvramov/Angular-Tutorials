@@ -1,12 +1,15 @@
 <div class="container">
 	<div class="welcome">
-		<h3>Welcome!</h3>
-		<p>
-			SoftUni forum is a place, where you can post your questions, comment, and
-			discuss problems, which you have in your programming language or in your
-			study in SoftUni.
-		</p>
-		<div class="logged">
+		<div *ngIf="isLogged()">
+			<h3>Welcome!</h3>
+			<p>
+				SoftUni forum is a place, where you can post your questions, comment, and
+				discuss problems, which you have in your programming language or in your
+				study in SoftUni.
+			</p>
+		</div>
+
+		<div class="logged" *ngIf="!isLogged()">
 			<ul>
 				<li>
 					<a routerLink="/login">

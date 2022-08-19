@@ -1,4 +1,4 @@
-import { Inject, NgModule, PLATFORM_ID } from '@angular/core';
+import { NgModule, PLATFORM_ID } from '@angular/core';
 import {
 	CommonModule,
 	isPlatformBrowser,
@@ -7,7 +7,7 @@ import {
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { AsideComponent } from './aside/aside.component';
+import { AsideComponent } from '../theme/aside/aside.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RouterModule } from '@angular/router';
 import { LocalStorage } from './injection-tokens';
@@ -17,11 +17,10 @@ import { AuthActivate } from './guards/auth.activate';
 	declarations: [
 		HeaderComponent,
 		FooterComponent,
-		AsideComponent,
 		NotFoundComponent,
 	],
 	imports: [CommonModule, HttpClientModule, RouterModule],
-	exports: [HeaderComponent, FooterComponent, AsideComponent],
+	exports: [HeaderComponent, FooterComponent],
 	providers: [
 		{
 			provide: LocalStorage,
