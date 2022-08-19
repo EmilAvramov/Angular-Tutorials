@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NotFoundComponent } from './core/not-found/not-found.component';
+import { HomeComponent } from './shared/home/home.component';
 
 const routes: Routes = [
 	{
@@ -7,7 +9,14 @@ const routes: Routes = [
 		pathMatch: 'full',
 		redirectTo: '/home'
 	},
-
+	{
+		path: 'home',
+		component: HomeComponent
+	},
+	{
+		path: "**",
+		component: NotFoundComponent
+	}
 ];
 
 @NgModule({
